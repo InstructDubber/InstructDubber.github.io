@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> FlowDubber Demo Page </title>
+		<link type="text/css" href="./css/basic.css" rel="stylesheet">
+		<link type="text/css" href="./css/index.css" rel="stylesheet">
+		<link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+		<script type='text/javascript' src="./js/jquery-3.3.1.min.js"></script>
+		<script type='text/javascript' src="./js/index.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="title">
+				<img class="top-img"  src="img\background.png" />
+				<span>InstructDubber: Instruction-based Alignment for Zero-shot Movie Dubbing</span>
+			</div>
+			<div class="content">
+				<div class="section author">
+				</div>
+				<div class="section">
+					<div class="section-title">ABSTRACT</div>
+					<div class="section-content abstract">
+						Movie dubbing seeks to synthesize speech from a given script using a specific voice, while ensuring accurate lip synchronization and emotion-prosody alignment with the character’s visual performance. However, existing alignment approaches based on visual features face two key limitations: (1) they rely on complex, handcrafted visual preprocessing pipelines, including facial landmark detection and feature extraction; and (2) they generalize poorly to unseen visual domains, often resulting in degraded alignment and dubbing quality. To address these issues, we propose InstructDubber, a novel instruction-based alignment dubbing method for both robust in-domain and zero-shot movie dubbing. Specifically, we first feed the video, script, and corresponding prompts into a multimodal large language model to generate natural language dubbing instructions regarding the speaking rate and emotion state depicted in the video, which is robust to visual domain variations. Second, we design an instructed duration distilling module to mine discriminative duration cues from speaking rate instructions to predict lip-aligned phoneme-level pronunciation duration. Third, for emotion-prosody alignment, we devise an instructed emotion calibrating module, which fine-tunes an LLM-based instruction analyzer using ground truth dubbing emotion as supervision and predicts prosody based on the calibrated emotion analysis. Finally, the predicted duration and prosody, together with the script, are fed into the audio decoder to generate video-aligned dubbing. Extensive experiments on three major benchmarks demonstrate that InstructDubber outperforms state‑of‑the‑art approaches across both in‑domain and zero‑shot scenarios.
+					</div>
+				</div>
+				
+
+                <div class="section">
+                    <div class="section-title">MODEL ARCHITECTURE</div>
+                    <div class="section-content model" style="text-align: center;">
+                        <img src="img\InstructDubber_method.png" alt="" class="model-img" style="width: 80%; height: auto;">
+                        
+						<p style="padding-top: 1rem; color: #545353; font-size: 1rem; text-align: center;">The main architecture of the proposed InstructDubber.
+  To predict the lip-synchronized phoneme-level duration, the Instructed Duration Distilling module (IDD) mines the duration cues from fine-grained speaking rate instructions.
+	The Instructed Emotion Calibrating module (IEC) fine-tunes a lightweight LLM to analyze the emotion instructions using the emotion entities from ground truth dubbing as supervision, and predicts the dubbing prosody based on the calibrated emotion analysis.</p>
+					</div>
+                </div>
+				
+				<div class="section">
+					<div class="section-title">EXPERIMENTS</div>
+					<div class="section-content experiments">
+						<!-- We develop four neural TTS systems for a  -->
+						<strong>Current SOTA Dubbing Baselines (All experimental results use the official code or providing checkpoint):</strong>
+						</br> 1) <b>StyleDubber (ACL'24)</b> is a SOTA Dubbing model using multi-scale style learning at the multi-modal phoneme level and acoustics utterance level.
+						</br> 2) <b>Speaker2Dubber (ACM MM'24)</b> is a SOTA pre-trained dubbing method with two-stage strategy to learn pronunciation from an additional TTS corpus. 
+						</br> 3) <b>DeepDubber (arXiv'25)</b> is a SOTA pre-trained dubbing method with two-stage strategy to learn pronunciation from an additional TTS corpus. 
+						</br> 4) <b>ProDubber (CVPR'25)</b> is a SOTA Dubbing model which first learn acoustic modeling ability from text-speech corpus then adapt the prosody to given videos.
+
+					</div>
+					<div class="section-content ">
+						<hr />
+						<div class="subsection-exp-2">
+							
+							<div>
+								
+							</div>
+							
+
+							<div class="module-content" style="margin-bottom: 30px;">
+
+								<!-- V2C Ori Sample1 -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >V2C-Animation Benchmark Sample1 (In-domain Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\GT.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\StyleDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\Speaker2Dubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\ProDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\V2C-Net.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_ACMMM25\Chem_Setting1\Sample_1\Ours.mp4" controls="" preload="" width="200"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+								
+
+								
+								
+
+            <div class="section">
+                <div class="section-title">More Audio-Visual Visualizations </div>
+                <div class="section-content model" style="text-align: center;">
+                    <img src="./img/Visual.PNG" alt="" class="model-img" style="width: 80%; height: auto;">
+                    
+                    <p style="padding-top: 1rem; color: #a1a1a1; font-size: 1rem; text-align: center;">The visualization of the mel-spectrograms of ground truth (GT) and synthesized audios obtained by different models.
+                        In (a), green arrows point to the video frames that no speak, and green bounding boxes are used to highlight the pauses in the
+                        speech. In (b), Pink arrows point to the enhanced details of the mel-spectrogram as flow matching guidance scale increases. </p>
+                </div>
+            </div>
+
+
+			</div>
+				<hr />
+			</div>
+				<!-- </div> -->
+			<!-- </div> -->
+		</div>
+		
+		
+	</body>
+</html>
