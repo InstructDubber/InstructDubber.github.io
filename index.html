@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title> FlowDubber Demo Page </title>
+		<title> InstructDubber Demo Page </title>
 		<link type="text/css" href="./css/basic.css" rel="stylesheet">
 		<link type="text/css" href="./css/index.css" rel="stylesheet">
 		<link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +36,66 @@
 						The Instructed Emotion Calibrating module (IEC) fine-tunes a lightweight LLM to analyze the emotion instructions using the emotion entities from ground truth dubbing as supervision, and predicts the dubbing prosody based on the calibrated emotion analysis.</p>
 					</div>
                 </div>
+
+				<div class="section">
+                    <div class="section-title">BENCHMARK ANALYSIS</div>
+					<div class="section-content analysis">
+                    <table id="table_3: center" style="text-align: center; align: center">
+									<thead>
+										<colgroup>
+										   <col width=35%></col>
+										   <col width=35%></col>
+										   <col width=35%></col>
+										   
+										</colgroup>
+
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: center;">
+													
+													<strong>An example of each benchmark.</strong>
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>V2C-Animation Benchmark</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Chem Benchmark</strong></th>
+											<th colspan="1" style="text-align: center"><strong>GRID Benchmark</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Benchmark_example\CloudyII@Flint_00_1250_00.mp4" controls="" preload="" width="400"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Benchmark_example\lpGVGcIVYs4-009.mp4" controls="" preload="" width="350"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Benchmark_example\s17-bbwe4n.mp4" controls="" preload="" width="350"></video></td>
+
+											</tr>
+											<td colspan="1" style="text-align: left; font-size: 1rem"> <strong>V2C-Animation</strong> derived from <span style="color:rgb(8, 124, 240)">real animated films</span>, characterized by <span style="color:rgb(8, 124, 240)">exaggerated prosodic variations and complex visual scenes</span>, making it the most challenging dubbing benchmark. </th>
+											<td colspan="1" style="text-align: left"></th> The <strong>Chem</strong> dataset is collected from chemistry lecture videos on YouTube, featuring a fixed camera perspective, <span style="color:rgb(8, 124, 240)">moderate variations in speaking rate and emotional expressions</span>.
+											<td colspan="1" style="text-align: left"><strong>GRID Benchmark</strong></th> is a basic and wide-used multi-speaker dubbing benchmark recorded in a noise-free studio with a unified screen background with a <span style="color:rgb(8, 124, 240)">stable speaking rate and minimal emotional variation</span>.
+											</tr>
+										
+										</tr>
+									</tbody>
+								
+								</table>
+								</br> Thus, in the main paper, we evaluate emotion similarity (EMO-SIM) on the V2C-Animation and Chem benchmarks. In this demo, we primarily showcase dubbing samples from the more challenging and discriminative V2C-Animation and Chem benchmarks.
+                </div>
+
+				<div class="section-content model" style="text-align: center;">
+                        <img src="img\SECS.png" alt="" class="model-img" style="width: 80%; height: auto;">
+                        
+						<p style="padding-top: 1rem; color: #545353; font-size: 1rem; text-align: left;">Due to space limitations and our primary focus on proposing a novel approach for dubbing alignment, we do not include comparisons of voice cloning performance across different models in the main text.
+																											Here, we compare the voice cloning performance of our approach with the state-of-the-art dubbing model ProDubber, which also serves as our baseline. 
+																											We extract speaker embeddings from both the generated dubbing and the ground-truth audio using a GE2E-based speaker encoder and compute the cosine similarity between them. 
+																											The results are presented in Table S3 of the Appendix.
+																											As shown in the table, our method achieves comparable speaker similarity performance to ProDubber in the in-domain dubbing scenario. Moreover, in zero-shot dubbing scenarios, our approach demonstrates superior voice cloning performance due to its enhanced robustness and generalization capability across different visual domains.</p>
+					</div>
 				
 				<div class="section">
 					<div class="section-title">EXPERIMENTS</div>
@@ -55,11 +115,9 @@
 							<div>
 								
 							</div>
-							
 
-							<div class="module-content" style="margin-bottom: 30px;">
 
-								<!-- V2C Ori Sample1 -->
+								<!-- Sample1 GRID2Chem-->
 								<table id="table_4">
 									<thead>
 										<colgroup>
@@ -74,7 +132,7 @@
 										</colgroup>
 										<tr>
 											<td colspan="7" style="text-align: center;">
-												<span style="font-weight: bold; font-size: 1.2em;" >V2C-Animation Benchmark Sample1 (In-domain Dubbing)</span> 
+												<span style="font-weight: bold; font-size: 1.2em;" >GRID2Chem Benchmark Sample1 (Zero-shot Dubbing)</span> 
 								
 											</td>
 										</tr>	
@@ -102,33 +160,526 @@
 											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
 											</tr>
 									
-											<td style="align: center; vertical-align: middle;" ><video src="" controls="" preload="" width="200"></video></td>
-											<td style="text-align: center"><video src="" controls="" preload="" width="200"></video></td>
-											<td style="text-align: center"><video src="" controls="" preload="" width="200"></video></td>
-											<td style="text-align: center"><video src="" controls="" preload="" width="200"></video></td>
-											<td style="text-align: center"><video src="" controls="" preload="" width="200"></video></td>
-											<td style="text-align: center"><video src="" controls="" preload="" width="200"></video></td>
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample1_GRID2Chem\GT.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2Chem\StyleDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2Chem\Speaker2Dubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2Chem\DeepDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2Chem\ProDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2Chem\InstructDubber.mp4" controls="" preload="" width="200"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+							
+
+							<div class="module-content" style="margin-bottom: 30px;">
+
+								<!-- Sample1 V2C2Chem -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >V2C2Chem Benchmark Sample1 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample1_V2C2Chem\GT.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_V2C2Chem\StyleDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_V2C2Chem\Speaker2Dubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_V2C2Chem\DeepDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_V2C2Chem\ProDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_V2C2Chem\InstructDubber.mp4" controls="" preload="" width="200"></video></td>
 
 										</tr>
 									</tbody>
 								
 								</table>
 
+
+							<!-- Sample1 Chem2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >Chem2V2C Benchmark Sample1 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample1_Chem2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_Chem2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_Chem2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_Chem2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_Chem2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_Chem2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+
+								<!-- Sample1 GRID2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >GRID2V2C Benchmark Sample1 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample1_GRID2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample1_GRID2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+								<!-- Sample2 GRID2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >GRID2V2C Benchmark Sample2 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample2_GRID2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+
+
+								<!-- Sample2 Chem2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >Chem2V2C Benchmark Sample2 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample2_Chem2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_Chem2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_Chem2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_Chem2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_Chem2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_Chem2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+										</tr>
+									</tbody>
+								
+								</table>
+
+
+								<!-- Sample3 GRID2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >GRID2V2C Benchmark Sample23 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample3_GRID2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_GRID2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_GRID2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_GRID2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_GRID2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_GRID2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+								<!-- Sample2 Chem2V2C -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >Chem2V2C Benchmark Sample2 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample3_Chem2V2C\GT.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_Chem2V2C\StyleDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_Chem2V2C\Speaker2Dubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_Chem2V2C\DeepDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_Chem2V2C\ProDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample3_Chem2V2C\InstructDubber.mp4" controls="" preload="" width="200" height="150"></video></td>
+										</tr>
+									</tbody>
+								
+								</table>
+
+								<!-- Sample2 GRID2Chem -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >GRID2Chem Benchmark Sample1 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample2_GRID2Chem\GT.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2Chem\StyleDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2Chem\Speaker2Dubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2Chem\DeepDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2Chem\ProDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_GRID2Chem\InstructDubber.mp4" controls="" preload="" width="200"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+
+								<!-- Sample2 V2C2Chem -->
+								<table id="table_4">
+									<thead>
+										<colgroup>
+										   <col width=20%></col>
+										   <col width=20%></col>
+								
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   <col width=20%></col>
+										   
+										</colgroup>
+										<tr>
+											<td colspan="7" style="text-align: center;">
+												<span style="font-weight: bold; font-size: 1.2em;" >V2C2Chem Benchmark Sample2 (Zero-shot Dubbing)</span> 
+								
+											</td>
+										</tr>	
+
+									<tbody>
+								
+
+									</tbody>
+									<tbody>
+										<tr>
+											<tr>
+												<td colspan="7" style="text-align: left;">
+													
+													<span style="color:rgb(146, 208, 80);">Text Content:</span> So the reaction quotient is actually just a reaction product, the product of the two ions. 
+													
+												</td>										
+											</tr>
+
+											</tr>
+											<th colspan="1" style="text-align: center"><strong>Ground-Truth</strong></th>
+											<th colspan="1" style="text-align: center"><strong>StyleDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>Speaker2Dubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>DeepDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong>ProDubber</strong></th>
+											<th colspan="1" style="text-align: center"><strong style="color: #1d5da4;">InstructDubber(Ours)</strong></th>
+											</tr>
+									
+											<td style="align: center; vertical-align: middle;" ><video src="Demo_InstructDubber\Sample2_V2C2Chem\GT.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_V2C2Chem\StyleDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_V2C2Chem\Speaker2Dubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_V2C2Chem\DeepDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_V2C2Chem\ProDubber.mp4" controls="" preload="" width="200"></video></td>
+											<td style="text-align: center"><video src="Demo_InstructDubber\Sample2_V2C2Chem\InstructDubber.mp4" controls="" preload="" width="200"></video></td>
+
+										</tr>
+									</tbody>
+								
+								</table>
+
+
+
 								
 
 								
-								
-
-            <div class="section">
-                <div class="section-title">More Audio-Visual Visualizations </div>
-                <div class="section-content model" style="text-align: center;">
-                    <img src="./img/Visual.PNG" alt="" class="model-img" style="width: 80%; height: auto;">
-                    
-                    <p style="padding-top: 1rem; color: #a1a1a1; font-size: 1rem; text-align: center;">The visualization of the mel-spectrograms of ground truth (GT) and synthesized audios obtained by different models.
-                        In (a), green arrows point to the video frames that no speak, and green bounding boxes are used to highlight the pauses in the
-                        speech. In (b), Pink arrows point to the enhanced details of the mel-spectrogram as flow matching guidance scale increases. </p>
-                </div>
-            </div>
+				
 
 
 			</div>
